@@ -17,7 +17,22 @@ namespace dbp2026HelloWorld
                     connection.Open();
 
                     Console.WriteLine($"Connection was established!");
+
+                    // Business logic starts here
+                    // after connection is established
+
+                    string sqlQuery = "SELECT * FROM Customers ;";
+
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.CommandText = sqlQuery;
+                    sqlCommand.Connection = connection;
+
+                    sqlCommand.ExecuteReader();
+
+
                 }
+
+
             }
             catch (Exception ex)
             {
