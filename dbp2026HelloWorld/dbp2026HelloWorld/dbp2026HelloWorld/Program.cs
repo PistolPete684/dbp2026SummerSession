@@ -27,7 +27,17 @@ namespace dbp2026HelloWorld
                     sqlCommand.CommandText = sqlQuery;
                     sqlCommand.Connection = connection;
 
-                    sqlCommand.ExecuteReader();
+                    SqlDataReader dataReader = sqlCommand.ExecuteReader();
+
+                    int? recordCounter = 0;
+                    if (dataReader.HasRows)
+                    {
+                        while (dataReader.Read())
+                        {
+                            Console.WriteLine($"Read Row #{++recordCounter}");
+                            
+                        }
+                    }
 
 
                 }
