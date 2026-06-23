@@ -16,7 +16,7 @@ namespace dbp2026HelloWorld
                 {
                     connection.Open();
 
-                    Console.WriteLine($"Connection was established!");
+                    Console.WriteLine($"Connection was established!\n\n");
 
                     // Business logic starts here
                     // after connection is established
@@ -34,7 +34,7 @@ namespace dbp2026HelloWorld
                     {
                         while (dataReader.Read())
                         {
-                            Console.WriteLine($"Read Row #{++recordCounter}");
+                            Console.WriteLine($"Read Row #{++recordCounter} - {dataReader[0]}: {dataReader[1]}");
                             
                         }
                     }
