@@ -21,7 +21,10 @@ namespace dbp2026HelloWorld
                     // Business logic starts here
                     // after connection is established
 
-                    string sqlQuery = "SELECT * FROM Customers ;";
+                    //"SELECT * FROM Customers ;";
+
+                    // Select the columns individually in order to reference them individualy when calling them below
+                    string sqlQuery = "SELECT ContactName, CompanyName, CustomerID FROM Customers ORDER BY CustomerID ASC;";
 
                     SqlCommand sqlCommand = new SqlCommand();
                     sqlCommand.CommandText = sqlQuery;
@@ -34,7 +37,8 @@ namespace dbp2026HelloWorld
                     {
                         while (dataReader.Read())
                         {
-                            Console.WriteLine($"Read Row #{++recordCounter} - {dataReader[0]}: {dataReader[1]}");
+                            // Reference the column name, so when the table is altered in the future, the display isn't broken
+                            Console.WriteLine($"Read Row #{++recordCounter} - {dataReader["CustomerID"]}: {dataReader["CustomerName"]}");
                             
                         }
                     }

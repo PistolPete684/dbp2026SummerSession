@@ -15,6 +15,7 @@ GO
 SELECT * FROM Customers ;
 
 SELECT * FROM Customers ORDER BY CustomerID ASC;
+SELECT ContactName, CompanyName, CustomerID FROM Customers ORDER BY CustomerID ASC;
 
 SELECT * FROM Northwind.dbo.Cusotmers ORDER BY CustomerID ASC;
 
