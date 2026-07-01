@@ -6,17 +6,34 @@ namespace dbp2026DataTableAdapterDemo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World! Let's  interact with the DB using Data Tables, Sets and Adapters");
+                string connectionString = "Database=Northwind; Integrated Security=SSPI; Server=LITTLE-JOHN;";
 
-            string connectionString = "Database=Northwind; Integrated Security=SSPI; Server=LITTLE-JOHN;" ;
+            try
+            {
+                Console.WriteLine("Hello, World! Let's  interact with the DB using Data Tables, Sets and Adapters");
 
-            SqlConnection connection = new SqlConnection(connectionString);
 
-            connection.Open();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
 
-            Console.WriteLine("Connection successfully Established!");
+                    Console.WriteLine("Connection successfully Established!");
 
-            connection.Close();
+                    connection.Close();
+                }
+
+                
+            }
+            catch (ArgumentException ex)
+            {
+
+                Console.WriteLine($"Argument Error Encountered : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error Encountered : {ex.Message}");
+            }
         }
     }
 }
