@@ -15,11 +15,23 @@ namespace dbp2026DataTableAdapterDemo
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+
+                    string sqlQuery = "";
+
+                    SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
+                    //This is stating the default explicitly 
+                    sqlCommand.CommandType = System.Data.CommandType.Text;
+
                     connection.Open();
 
                     Console.WriteLine("Connection successfully Established!");
 
                     connection.Close();
+
+                    //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                    //sqlDataAdapter.Fill();
+
+
                 }
 
                 
