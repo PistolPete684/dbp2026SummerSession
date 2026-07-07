@@ -16,7 +16,7 @@ namespace dbp2026DataTableAdapterDemo
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
 
-                    string sqlQuery = "";
+                    string sqlQuery = "SELECT * FROM Customers ORDER BY CustomerID DESC ;";
 
                     SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
                     //This is stating the default explicitly 
